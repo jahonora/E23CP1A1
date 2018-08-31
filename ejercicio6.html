@@ -6,7 +6,7 @@
 	<title></title>
 </head>
 <body>
-    <button>Clasificar Arreglo</button> 
+    <button onclick="sorting()">Clasificar Arreglo</button> 
     <ul id="par">
         <strong>Pares</strong>
     </ul>
@@ -21,18 +21,22 @@
         var par = document.getElementById("par")
         var impar = document.getElementById("impar")
         var str = document.getElementById("string")
-        for(i = 0; i < arr.length; i++){
-        	if(isEven(arr[i])){
-        		console.log("Es par")
-        	}
-        	else if(isOdd(arr[i])){
-        		console.log("Es impar")
-        	}
-        	else{
-        		console.log("Es string")
-        	}
-        };
-
+        function sorting(){
+	        for(i = 0; i < arr.length; i++){
+		        var doc_element = document.createElement("li");
+		        node = document.createTextNode(arr[i]);
+		        doc_element.appendChild(node);
+	        	if(isEven(arr[i])){
+			        par.appendChild(doc_element);
+	        	}
+	        	else if(isOdd(arr[i])){
+	        		impar.appendChild(doc_element);
+	        	}
+	        	else{
+	        		str.appendChild(doc_element);
+	        	}
+	        };
+    	}
         function isEven(n) {
 		   return n % 2 == 0;
 		}
